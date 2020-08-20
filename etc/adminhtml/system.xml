@@ -1,0 +1,41 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="apexx_section" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>APEXX</label>
+                <group id="apexxpayment" translate="label comment" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[APEXX]]></label>
+                    <comment><![CDATA[Accept credit/debit cards and PayPal in your Magento store.<br/>No setup or monthly fees and your customers never leave your store to complete the purchase.]]></comment>                      <fieldset_css>complex apexx-section</fieldset_css>
+                    <frontend_model>Magento\Paypal\Block\Adminhtml\System\Config\Fieldset\Payment</frontend_model>
+                    <group id="configuration_details" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="2">
+                        <comment>https://docs.magento.com/m2/ce/user_guide/payment/braintree.html</comment>
+                        <frontend_model>Magento\Paypal\Block\Adminhtml\System\Config\Fieldset\Hint</frontend_model>
+                    </group>
+                    <group id="credentials" translate="label" type="text" sortOrder="10"
+                           showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Basic Apexx Settings</label>
+                        <field id="api_endpoint" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>API Endpoint</label>
+                            <comment>Please add url like (http://domain.com/test/) End with slash</comment>
+                        </field>
+                        <field id="merchant_api_key" translate="label" type="obscure" sortOrder="15"
+                               showInDefault="1" showInWebsite="1" showInStore="0">
+                            <label>Merchant API key</label>
+                            <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                        </field>
+                        <field id="organization_id" translate="label" type="obscure" sortOrder="20"
+                               showInDefault="1" showInWebsite="1" showInStore="0">
+                            <label>Merchant Organisation Id</label>
+                            <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                        </field>
+                        <field id="debug" translate="label" type="select" sortOrder="22"
+                               showInDefault="1" showInWebsite="1" showInStore="0">
+                            <label>Debug</label>
+                            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        </field>
+                    </group>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>
